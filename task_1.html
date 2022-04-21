@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_1</title>
+</head>
+
+<body>
+    <script>
+        function translationNumberSystem(numb, system) {
+            let numbNumb = Number(numb);
+            let systemNumb = Number(system);
+            if (isNaN(numbNumb) || isNaN(systemNumb)) {
+                return null;
+            };
+
+            return numbNumb.toString(systemNumb);
+        };
+
+        (function () {
+            let num1 = prompt("Введите первое число:");
+            let num2 = prompt("Введите второе число:");
+            let result = translationNumberSystem(num1, num2);
+            if (result) {
+                console.log(result);
+            } else {
+                console.log("Некорректный ввод!");
+            }
+
+        }());
+
+    </script>
+</body>
+
+</html>
