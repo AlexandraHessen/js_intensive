@@ -32,6 +32,21 @@
 
         }());
 
+        (function translationNumberSystemTests() {
+            let result;
+
+            console.log(`тест 10, 2 -> 1010`);
+            result = translationNumberSystem("10", "2");
+            console.log((result == 1010) ? `${result} пройден ` : `НЕ ПРОЙДЕН! ${result}`);
+
+            console.log(`тест 872, 8 -> 1550`);
+            result = translationNumberSystem("872", "8");
+            console.log((result == 1550) ? `${result} пройден ` : `НЕ ПРОЙДЕН! ${result}`);
+
+            console.log(`тест 2, "abc" -> null`);
+            result = translationNumberSystem("2", "abc");
+            console.log((result == null) ? `пройден ${result}` : `НЕ ПРОЙДЕН! ${result}`);
+        }());
     </script>
 </body>
 
