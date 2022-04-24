@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_2</title>
+</head>
+
+<body>
+    <script>
+        function findSumQuotient(numb1, numb2) {
+            let numb1Numb = parseFloat(numb1);
+            let numb2Numb = parseFloat(numb2);
+
+            if (isNaN(numb1Numb)) {
+                return null;
+            } else if (isNaN(numb2Numb)) {
+                return null;
+            } else {
+                let sum = numb1Numb + numb2Numb;
+                let quotient = numb1Numb / numb2Numb;
+                return [sum, quotient];
+
+            }
+        };
+
+        (function () {
+            let num1 = prompt("Введите первое число:");
+            let num2 = prompt("Введите второе число:");
+            let result = findSumQuotient(num1, num2);
+            if (result) {
+                console.log(`Ответ: ${result[0]}, ${result[1]}.`);
+            } else {
+                console.log("Некорректный ввод!");
+            }
+
+        }());
+
+        (function findSumQuotientTests() {
+            let result;
+
+            console.log(`тест 10, 2 -> 12, 5`);
+            result = findSumQuotient("10", "2");
+            console.log(((result[0] == 12) && (result[1] == 5)) ? `${result[0]}, ${result[1]} пройден ` :
+                `НЕ ПРОЙДЕН! ${result[0]}, ${result[1]}`);
+
+            console.log(`тест 872, 8 -> 880, 109`);
+            result = findSumQuotient("872", "8");
+            console.log(((result[0] == 880) && (result[1] == 109)) ? `${result[0]}, ${result[1]} пройден ` :
+                `НЕ ПРОЙДЕН! ${result[0]}, ${result[1]}`);
+
+            console.log(`тест "abc" -> null`);
+            result = findSumQuotient("abc");
+            console.log(((result == null)) ? `${result} пройден ` : `НЕ ПРОЙДЕН! ${result}`);
+        }());
+    </script>
+</body>
+
+</html>

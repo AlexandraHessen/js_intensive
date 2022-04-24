@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_1</title>
+</head>
+
+<body>
+    <script>
+        function translationNumberSystem(numb, system) {
+            let numbNumb = Number(numb);
+            let systemNumb = Number(system);
+            if (isNaN(numbNumb) || isNaN(systemNumb)) {
+                return null;
+            };
+
+            return numbNumb.toString(systemNumb);
+        };
+
+        (function () {
+            let num1 = prompt("Введите первое число:");
+            let num2 = prompt("Введите второе число:");
+            let result = translationNumberSystem(num1, num2);
+            if (result) {
+                console.log(result);
+            } else {
+                console.log("Некорректный ввод!");
+            }
+
+        }());
+
+        (function translationNumberSystemTests() {
+            let result;
+
+            console.log(`тест 10, 2 -> 1010`);
+            result = translationNumberSystem("10", "2");
+            console.log((result == 1010) ? `${result} пройден ` : `НЕ ПРОЙДЕН! ${result}`);
+
+            console.log(`тест 872, 8 -> 1550`);
+            result = translationNumberSystem("872", "8");
+            console.log((result == 1550) ? `${result} пройден ` : `НЕ ПРОЙДЕН! ${result}`);
+
+            console.log(`тест 2, "abc" -> null`);
+            result = translationNumberSystem("2", "abc");
+            console.log((result == null) ? `пройден ${result}` : `НЕ ПРОЙДЕН! ${result}`);
+        }());
+    </script>
+</body>
+
+</html>
