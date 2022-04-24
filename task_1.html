@@ -16,8 +16,12 @@
             if (!obj || typeof obj !== "object") {
                 return obj;
             };
+            
             if (obj instanceof Date) {
                 copy = new Date(obj)
+                return copy;
+            } else if (obj instanceof RegExp) {
+                copy = new RegExp(obj)
                 return copy;
             } else if (Array.isArray(obj)) {
                 copy = [];
