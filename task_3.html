@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_3</title>
+</head>
+
+<body>
+    <script>
+        const myIterable = {
+            from: 0,
+            to: 4
+        };
+
+        myIterable[Symbol.iterator] = function () {
+            function isValidNumber(numb) {
+                return typeof numb === "number" && isFinite(numb);
+            };
+
+            if (this.from > this.to ||
+                !isValidNumber(this.from) ||
+                !isValidNumber(this.to)) {
+                throw new Error("Невалидное значение интервала!")
+            }
+
+            return {
+                current: this.from,
+                last: this.to,
+                next() {
+                    if (this.current <= this.last) {
+                        return {
+                            value: this.current++,
+                            done: false
+                        };
+                    } else {
+                        return {
+                            done: true
+                        };
+                    }
+                }
+            };
+        };
+
+        for (let item of myIterable) {
+            console.log(item); 
+        }
+    </script>
+
+</body>
+
+</html>
