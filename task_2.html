@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task_2</title>
+</head>
+
+<body>
+    <script>
+        function selectFromInterval(arr, startInterval, endInterval) {
+            function isValidNumber(numb) {
+                return typeof numb === "number" && isFinite(numb);
+            };
+
+            if (!arr || !Array.isArray(arr) || (arr.some(value => !isValidNumber(value)))) {
+                throw new Error("Невалидное значение массива!");
+            };
+
+            if (!isValidNumber(startInterval) || !isValidNumber(endInterval)) {
+                throw new Error("Невалидное значение интервала!");
+            };
+
+            let arrFromInterval;
+
+            arrFromInterval = arr.filter(numb => {
+
+                if (startInterval < endInterval) {
+                    return startInterval <= numb && numb <= endInterval;
+                } else {
+                    return endInterval <= numb && numb <= startInterval;
+                }
+            })
+
+
+            return arrFromInterval;
+        }
+
+        console.log(selectFromInterval([1, 3, 5], 5, 2));
+        console.log(selectFromInterval([1, 3, 5], 2, 5));
+        console.log(selectFromInterval([1, 2, 3, 5], 2, 2));
+        // console.log(selectFromInterval(["HHH", 5], 2, 5));
+        // console.log(selectFromInterval([1, NaN, 5], 2, 5));
+        console.log(selectFromInterval([1, 6.33, 5], -9, 9));
+        console.log(selectFromInterval([-2, -15, 0, 4], -13, -5));
+        console.log(selectFromInterval(['aaa'], 2, 3));
+    </script>
+
+</body>
+
+</html>
