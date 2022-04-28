@@ -1,15 +1,20 @@
+"use strict";
 class Queue {
     constructor() {
         this.queue = [];
-        this.size = 0;
+        this.length = 0;
         this.startIndex = 0;
         this.endIndex = -1;
     }
+
+
     enqueue(item) {
         this.endIndex++
         this.queue[this.endIndex] = item;
-        this.size++
+        this.length++
     }
+
+
     dequeue() {
         if (this.isEmpty()) {
             return undefined;
@@ -18,14 +23,11 @@ class Queue {
         const deleteElement = this.queue[this.startIndex];
         this.queue[this.startIndex] = null;
         this.startIndex++
-        this.size--
+        this.length--
         return deleteElement;
 
     }
 
-    peek() {
-        return this.stack[this.size - 1]
-    }
 
     front() {
         if (this.isEmpty()) {
@@ -36,10 +38,24 @@ class Queue {
     }
 
     isEmpty() {
-        return this.size === 0;
+        return this.length === 0;
     }
 
     size() {
-        return this.size;
+        return this.length;
     }
 }
+
+let queue = new Queue();
+queue.enqueue(10);
+queue.enqueue(20);
+queue.enqueue(30);
+queue.enqueue(40);
+console.log(queue); // queue = [10, 20, 30, 40]
+
+queue.dequeue();
+queue.dequeue();
+console.log(queue); // queue = [null, null, 30, 40]
+console.log(queue.front()); //30
+console.log(queue.isEmpty()); //false
+console.log(queue.size()); //2
