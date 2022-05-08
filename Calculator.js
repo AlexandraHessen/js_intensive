@@ -1,59 +1,59 @@
 "use strict";
 
 class Calculator {
-    #num1;
-    #num2;
+    #x;
+    #y;
 
-    constructor(num1, num2) {
-        this.num1 = num1;
-        this.num2 = num2;
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
     }
 
-    set num1(value) {
+    set x(value) {
         if (typeof (value) !== "number") throw new Error("Невалидное число!");
 
-        this.#num1 = value;
+        this.#x = value;
     }
 
-    get num1() {
-        return this.#num1;
+    get x() {
+        return this.#x;
     }
 
-    set num2(value) {
+    set y(value) {
         if (typeof (value) !== "number") throw new Error("Невалидное число!");
-        this.#num2= value;
+        this.#y= value;
     }
 
-    get num2() {
-        return this.#num2;
+    get y() {
+        return this.#y;
 
     }
 
     setX(num) {
         if (typeof (num) !== "number") throw new Error("Невалидное число!");
-        this.#num1 = num;
+        this.#x = num;
     }
 
     setY(num) {
         if (typeof (num) !== "number") throw new Error("Невалидное число!")
-        this.#num2 = num;
+        this.#y = num;
     }
 
     #logSum() {
-        console.log(this.#num1 + this.#num2);
+        console.log(this.#x + this.#y);
     }
 
     #logMul() {
-        console.log(this.#num1 * this.#num2);
+        console.log(this.#x * this.#y);
     }
 
     #logSub() {
-        console.log(this.#num1 - this.#num2);
+        console.log(this.#x - this.#y);
     }
 
     #logDiv() {
-        if (this.#num2 === 0) throw new Error("Второе число не может быть равно 0!");
-        console.log(this.#num1 / this.#num2);
+        if (this.#y === 0) throw new Error("Второе число не может быть равно 0!");
+        console.log(this.#x / this.#y);
 
     }
 }
