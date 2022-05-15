@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //всплытие 
+        console.log(someValue); //undefined
+        var someValue;
+
+        // можно созвать несколько раз
+        var someValue = 3000;
+        var someValue = "Another string...";
+
+        //функциональная область видимости перемннной VAR, за ее приделами выдает ошибку
+        console.log(internalVarible); // Error internalVarible is not defined
+        function doSmth() {
+            console.log(internalVarible); //underfined
+            var internalVarible = 100;
+            console.log(internalVarible); //100
+        }
+
+        //на if это правило не распростроняется 
+        console.log(variableInCondition); //underfined
+        if(true){
+            var variableInCondition = "Visible outside";
+        }
+        console.log(variableInCondition); //"Visible outside"
+    </script>
+</body>
+
+</html>
